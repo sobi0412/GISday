@@ -2,176 +2,322 @@
 <html lang="mn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>GIS Day 2026</title>
 
 <style>
+
 :root{
-    --p:#005f73;
-    --s:#0a9396;
-    --a:#ee9b00;
+  --primary:#005f73;
+  --secondary:#0a9396;
+  --accent:#ee9b00;
 }
 
 *{
-    box-sizing:border-box;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
 body{
-    margin:0;
-    font-family:Segoe UI, Arial, sans-serif;
-    background:#f4f7fb;
-    color:#1e293b;
+  font-family:Segoe UI,Arial,sans-serif;
+  background:#f4f7fb;
+  color:#1e293b;
+  line-height:1.6;
+}
+
+.language-switch{
+  position:fixed;
+  top:20px;
+  right:20px;
+  z-index:999;
+}
+
+.language-switch button{
+  border:none;
+  padding:10px 20px;
+  margin-left:5px;
+  border-radius:20px;
+  cursor:pointer;
+  background:white;
+  box-shadow:0 2px 8px rgba(0,0,0,.15);
+  font-weight:600;
 }
 
 .hero{
-    min-height:70vh;
-    background:linear-gradient(135deg,var(--p),var(--s));
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    color:#fff;
-    padding:2rem;
+  min-height:70vh;
+  background:linear-gradient(
+      135deg,
+      var(--primary),
+      var(--secondary)
+  );
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:white;
+  padding:2rem;
 }
 
 .hero h1{
-    font-size:clamp(3rem,8vw,6rem);
+  font-size:clamp(3rem,8vw,6rem);
+  margin-bottom:20px;
 }
 
 .container{
-    max-width:1200px;
-    margin:auto;
-    padding:60px 20px;
+  max-width:1200px;
+  margin:auto;
+  padding:60px 20px;
 }
 
-.card{
-    background:#fff;
-    border-radius:18px;
-    padding:24px;
-    box-shadow:0 8px 20px rgba(0,0,0,.08);
+.section-title{
+  margin-bottom:25px;
+  color:var(--primary);
 }
 
 .grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:16px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
+}
+
+.card{
+  background:white;
+  border-radius:18px;
+  padding:24px;
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
 }
 
 .agenda{
-    display:grid;
-    gap:14px;
+  display:grid;
+  gap:14px;
 }
 
 .session{
-    background:#fff;
-    border-left:6px solid var(--s);
-    padding:20px;
-    border-radius:14px;
-    box-shadow:0 4px 12px rgba(0,0,0,.08);
+  background:white;
+  border-left:6px solid var(--secondary);
+  padding:20px;
+  border-radius:14px;
+  box-shadow:0 4px 12px rgba(0,0,0,.08);
 }
 
 .time{
-    font-weight:700;
-    color:var(--p);
+  font-weight:700;
+  color:var(--primary);
+  margin-bottom:6px;
+}
+
+.speaker{
+  color:#64748b;
+  font-size:.9rem;
+  margin-top:8px;
 }
 
 footer{
-    background:#0f172a;
-    color:#fff;
-    text-align:center;
-    padding:30px;
-    margin-top:40px;
+  background:#0f172a;
+  color:white;
+  text-align:center;
+  padding:30px;
+  margin-top:40px;
 }
+
+@media(max-width:768px){
+
+ .hero{
+   min-height:50vh;
+ }
+
+ .language-switch{
+   top:10px;
+   right:10px;
+ }
+
+}
+
 </style>
 </head>
-
 <body>
 
+<div class="language-switch">
+  <button onclick="setLang('mn')">Монгол</button>
+  <button onclick="setLang('en')">English</button>
+</div>
+
 <section class="hero">
-    <div>
-        <h1>GIS DAY 2026</h1>
-        <p>
-            Мэдлэг • Туршлага • Хамтын ажиллагаа • Шинэ боломж • Шагнал • GIS Day бялуу 🎂
-        </p>
-    </div>
+  <div>
+      <h1 id="title">GIS DAY 2026</h1>
+      <p id="tagline">
+        Мэдлэг • Туршлага • Хамтын ажиллагаа • Шинэ боломж • Шагнал • GIS Day бялуу 🎂
+      </p>
+  </div>
 </section>
 
 <div class="container">
+
+    <h2 class="section-title" id="eventInfoTitle">
+      Арга хэмжээний мэдээлэл
+    </h2>
+
     <div class="grid">
-        <div class="card">📅 2026.11.18</div>
-        <div class="card">🕒 12:30–14:30</div>
-        <div class="card">📍 Моннис 15 давхар</div>
-        <div class="card">👥 Сонирхсон хүн бүрт нээлттэй</div>
+
+      <div class="card">
+        <strong id="dateLabel">Огноо</strong><br>
+        2026.11.18
+      </div>
+
+      <div class="card">
+        <strong id="timeLabel">Цаг</strong><br>
+        12:30 – 14:30
+      </div>
+
+      <div class="card">
+        <strong id="locationLabel">Байршил</strong><br>
+        <span id="locationText">Моннис 15 давхар</span>
+      </div>
+
+      <div class="card">
+        <strong id="audienceLabel">Оролцогчид</strong><br>
+        <span id="audienceText">Сонирхсон хүн бүрт нээлттэй</span>
+      </div>
+
     </div>
+
 </div>
 
 <div class="container">
-    <h2>Хөтөлбөр</h2>
 
-    <div class="agenda">
+  <h2 class="section-title" id="agendaTitle">
+    Хөтөлбөр
+  </h2>
 
-        <div class="session">
-            <div class="time">12:30 - 12:45</div>
-            Нээлтийн ажиллагаа (мэндчилгээ, ГМС-ийн өдрийн танилцуулга)
-            <br>
-            <small>Систем ба Дата баг</small>
-        </div>
+  <div class="agenda">
 
-        <div class="session">
-            <div class="time">12:45 - 12:55</div>
-            ГМС-ийн багийн 2026 оны онцлох үр дүн, үйлчилгээний танилцуулга
-            <br>
-            <small>Д. Санжмятав</small>
-        </div>
-
-        <div class="session">
-            <div class="time">12:55 - 13:10</div>
-            Газар ашиглалтын менежментийг хэрэгжүүлэхэд газарзүйн мэдээллийн системийн ач холбогдол
-            <br>
-            <small>Б.Дашням, О.Цээсүрэн</small>
-        </div>
-
-        <div class="session">
-            <div class="time">13:10 - 13:25</div>
-            Далд уурхайн мөргөцөгийн 3 хэмжээст геологийн зураглалыг ГМС Портал ашиглан харуулсан жишээ
-            <br>
-            <small>Б.Оюуномин</small>
-        </div>
-
-        <div class="session">
-            <div class="time">13:25 - 13:35</div>
-            ГМС сервис ашиглан оронзайн анализ хийх, автоматжуулах шинэ боломжууд (Notebook Server)
-            <br>
-            <small>М.Солонго</small>
-        </div>
-
-        <div class="session">
-            <div class="time">13:35 - 13:50</div>
-            Талбайн хариуцагчийн мэдээллийг нэгтгэн удирдах ГМС аппликейшны хэрэглээ, ач холбогдол
-            <br>
-            <small>Эрүүл мэнд, Аюулгүй ажиллагааны баг</small>
-        </div>
-
-        <div class="session">
-            <div class="time">13:50 - 14:10</div>
-            Асуулт, хариултын хөгжөөнт тэмцээн, Шагнал гардуулах ажиллагаа
-            <br>
-            <small>Бүх оролцогчид</small>
-        </div>
-
-        <div class="session">
-            <div class="time">14:10 - 14:30</div>
-            Чөлөөт ярилцлага, асуулт хариултын цаг, зураг авалт
-            <br>
-            <small>Бүх оролцогчид</small>
-        </div>
-
+    <div class="session">
+      <div class="time">12:30 - 12:45</div>
+      <div id="s1">Нээлтийн ажиллагаа (мэндчилгээ, ГМС-ийн өдрийн танилцуулга)</div>
+      <div class="speaker" id="sp1">Систем ба Дата баг</div>
     </div>
+
+    <div class="session">
+      <div class="time">12:45 - 12:55</div>
+      <div id="s2">ГМС-ийн багийн 2026 оны онцлох үр дүн, үйлчилгээний танилцуулга</div>
+      <div class="speaker">Д. Санжмятав</div>
+    </div>
+
+    <div class="session">
+      <div class="time">12:55 - 13:10</div>
+      <div id="s3">Газар ашиглалтын менежментийг хэрэгжүүлэхэд газарзүйн мэдээллийн системийн ач холбогдол</div>
+      <div class="speaker">Б.Дашням, О.Цээсүрэн</div>
+    </div>
+
+    <div class="session">
+      <div class="time">13:10 - 13:25</div>
+      <div id="s4">Далд уурхайн мөргөцөгийн 3 хэмжээст геологийн зураглалыг ГМС Портал ашиглан харуулсан жишээ</div>
+      <div class="speaker">Б.Оюуномин</div>
+    </div>
+
+    <div class="session">
+      <div class="time">13:25 - 13:35</div>
+      <div id="s5">ГМС сервис ашиглан оронзайн анализ хийх, автоматжуулах шинэ боломжууд</div>
+      <div class="speaker">М.Солонго</div>
+    </div>
+
+    <div class="session">
+      <div class="time">13:35 - 13:50</div>
+      <div id="s6">Талбайн хариуцагчийн мэдээллийг нэгтгэн удирдах ГМС аппликейшны хэрэглээ, ач холбогдол</div>
+      <div class="speaker" id="sp6">Эрүүл мэнд, Аюулгүй ажиллагааны баг</div>
+    </div>
+
+    <div class="session">
+      <div class="time">13:50 - 14:10</div>
+      <div id="s7">Асуулт, хариултын хөгжөөнт тэмцээн, Шагнал гардуулах ажиллагаа</div>
+      <div class="speaker" id="sp7">Бүх оролцогчид</div>
+    </div>
+
+    <div class="session">
+      <div class="time">14:10 - 14:30</div>
+      <div id="s8">Чөлөөт ярилцлага, асуулт хариултын цаг, зураг авалт</div>
+      <div class="speaker" id="sp8">Бүх оролцогчид</div>
+    </div>
+
+  </div>
+
 </div>
 
 <footer>
+  <div id="footerText">
     Өгөгдөл бол хөрөнгө. Байршил бол үнэ цэнэ юм.
+  </div>
 </footer>
+
+<script>
+
+const translations = {
+
+  mn:{
+    eventInfo:"Арга хэмжээний мэдээлэл",
+    date:"Огноо",
+    time:"Цаг",
+    location:"Байршил",
+    audience:"Оролцогчид",
+    locationText:"Моннис 15 давхар",
+    audienceText:"Сонирхсон хүн бүрт нээлттэй",
+    agenda:"Хөтөлбөр",
+    tagline:"Мэдлэг • Туршлага • Хамтын ажиллагаа • Шинэ боломж • Шагнал • GIS Day бялуу 🎂",
+    footer:"Өгөгдөл бол хөрөнгө. Байршил бол үнэ цэнэ юм."
+  },
+
+  en:{
+    eventInfo:"Event Information",
+    date:"Date",
+    time:"Time",
+    location:"Location",
+    audience:"Audience",
+    locationText:"Monnis Building, 15th Floor",
+    audienceText:"Open to all employees",
+    agenda:"Agenda",
+    tagline:"Knowledge • Experience • Collaboration • New Opportunities • Prizes • GIS Day Cake 🎂",
+    footer:"Data is an asset. Location creates value."
+  }
+
+};
+
+function setLang(lang){
+
+  document.getElementById("eventInfoTitle").innerText =
+      translations[lang].eventInfo;
+
+  document.getElementById("dateLabel").innerText =
+      translations[lang].date;
+
+  document.getElementById("timeLabel").innerText =
+      translations[lang].time;
+
+  document.getElementById("locationLabel").innerText =
+      translations[lang].location;
+
+  document.getElementById("audienceLabel").innerText =
+      translations[lang].audience;
+
+  document.getElementById("locationText").innerText =
+      translations[lang].locationText;
+
+  document.getElementById("audienceText").innerText =
+      translations[lang].audienceText;
+
+  document.getElementById("agendaTitle").innerText =
+      translations[lang].agenda;
+
+  document.getElementById("tagline").innerText =
+      translations[lang].tagline;
+
+  document.getElementById("footerText").innerText =
+      translations[lang].footer;
+
+}
+
+</script>
 
 </body>
 </html>
