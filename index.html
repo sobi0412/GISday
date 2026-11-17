@@ -2,23 +2,383 @@
 <html lang="mn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GIS Day 2026</title>
+
 <style>
-:root{--p:#005f73;--s:#0a9396;--a:#ee9b00}*{box-sizing:border-box}body{margin:0;font-family:Segoe UI,Arial,sans-serif;background:#f4f7fb;color:#1e293b}.lang{position:fixed;right:15px;top:15px;z-index:10}.lang button{padding:8px 14px;margin-left:4px;border:none;border-radius:20px}.hero{background:linear-gradient(135deg,var(--p),var(--s));color:#fff;min-height:50vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:2rem}.container{max-width:1100px;margin:auto;padding:40px 20px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}.card,.session{background:#fff;border-radius:14px;padding:20px;box-shadow:0 4px 12px rgba(0,0,0,.08)}.session{border-left:6px solid var(--s);margin-bottom:12px}.time{font-weight:700;color:var(--p)}footer{background:#0f172a;color:#fff;text-align:center;padding:30px}</style>
-</head><body>
-<div class="lang"><button onclick="setLang('mn')">Монгол</button><button onclick="setLang('en')">English</button></div>
-<section class="hero"><div><h1 id="title">GIS DAY 2026</h1><p id="tagline">Мэдлэг • Туршлага • Хамтын ажиллагаа • Шинэ боломж • Шагнал • GIS Day бялуу 🎂</p></div></section>
-<div class="container"><h2 id="eventInfoTitle">Арга хэмжээний мэдээлэл</h2><div class="grid"><div class="card"><b id="dateLabel">Огноо</b><br>2026.11.18</div><div class="card"><b id="timeLabel">Цаг</b><br>12:30–14:30</div><div class="card"><b id="locationLabel">Байршил</b><br><span id="locationText">Моннис 15 давхар</span></div><div class="card"><b id="audienceLabel">Оролцогчид</b><br><span id="audienceText">Сонирхсон хүн бүрт нээлттэй</span></div></div></div>
-<div class="container"><h2 id="agendaTitle">Хөтөлбөр</h2>
-<div class="session"><div class="time">12:30-12:45</div><div id="s1">Нээлтийн ажиллагаа (мэндчилгээ, ГМС-ийн өдрийн танилцуулга)</div><small id="sp1">Систем ба Дата баг</small></div>
-<div class="session"><div class="time">12:45-12:55</div><div id="s2">ГМС-ийн багийн 2026 оны онцлох үр дүн, үйлчилгээний танилцуулга</div><small id="sp2">Д.Санжмятав</small></div>
-<div class="session"><div class="time">12:55-13:10</div><div id="s3">Газар ашиглалтын менежментийг хэрэгжүүлэхэд газарзүйн мэдээллийн системийн ач холбогдол</div><small id="sp3">Б.Дашням, О.Цээсүрэн</small></div>
-<div class="session"><div class="time">13:10-13:25</div><div id="s4">Далд уурхайн мөргөцөгийн 3 хэмжээст геологийн зураглалыг ГМС Портал ашиглан харуулсан жишээ</div><small id="sp4">Б.Оюуномин</small></div>
-<div class="session"><div class="time">13:25-13:35</div><div id="s5">ГМС сервис ашиглан оронзайн анализ хийх, автоматжуулах шинэ боломжууд (Notebook Server ашиглах боломж)</div><small id="sp5">М.Солонго</small></div>
-<div class="session"><div class="time">13:35-13:50</div><div id="s6">Оюу Толгой төслийн хэмжээнд талбайн хариуцагчийн мэдээллийг нэгтгэн удирдах ГМС аппликейшны хэрэглээ, ач холбогдол</div><small id="sp6">ЭМААБ-ын баг</small></div>
-<div class="session"><div class="time">13:50-14:10</div><div id="s7">Асуулт, хариултын хөгжөөнт тэмцээн, Шагнал гардуулах ажиллагаа</div><small id="sp7">Бүх оролцогчид</small></div>
-<div class="session"><div class="time">14:10-14:30</div><div id="s8">Чөлөөт ярилцлага, асуулт хариултын цаг, зураг авалт</div><small id="sp8">Бүх оролцогчид</small></div></div>
-<footer><div id="footer1">Өгөгдөл бол хөрөнгө. Байршил бол үнэ цэнэ юм.</div><div id="footer2">ГМС-ийн тусламжтайгаар өгөгдлийн үнэ цэнийг бүрэн ашиглая.</div></footer>
-<script>const t={mn:{eventInfo:'Арга хэмжээний мэдээлэл',date:'Огноо',time:'Цаг',location:'Байршил',audience:'Оролцогчид',locationText:'Моннис 15 давхар',audienceText:'Сонирхсон хүн бүрт нээлттэй',agenda:'Хөтөлбөр',tagline:'Мэдлэг • Туршлага • Хамтын ажиллагаа • Шинэ боломж • Шагнал • GIS Day бялуу 🎂',s1:'Нээлтийн ажиллагаа (мэндчилгээ, ГМС-ийн өдрийн танилцуулга)',sp1:'Систем ба Дата баг',s2:'ГМС-ийн багийн 2026 оны онцлох үр дүн, үйлчилгээний танилцуулга',sp2:'Д.Санжмятав',s3:'Газар ашиглалтын менежментийг хэрэгжүүлэхэд газарзүйн мэдээллийн системийн ач холбогдол',sp3:'Б.Дашням, О.Цээсүрэн',s4:'Далд уурхайн мөргөцөгийн 3 хэмжээст геологийн зураглалыг ГМС Портал ашиглан харуулсан жишээ',sp4:'Б.Оюуномин',s5:'ГМС сервис ашиглан оронзайн анализ хийх, автоматжуулах шинэ боломжууд (Notebook Server ашиглах боломж)',sp5:'М.Солонго',s6:'Оюу Толгой төслийн хэмжээнд талбайн хариуцагчийн мэдээллийг нэгтгэн удирдах ГМС аппликейшны хэрэглээ, ач холбогдол',sp6:'ЭМААБ-ын баг',s7:'Асуулт, хариултын хөгжөөнт тэмцээн, Шагнал гардуулах ажиллагаа',sp7:'Бүх оролцогчид',s8:'Чөлөөт ярилцлага, асуулт хариултын цаг, зураг авалт',sp8:'Бүх оролцогчид',f1:'Өгөгдөл бол хөрөнгө. Байршил бол үнэ цэнэ юм.',f2:'ГМС-ийн тусламжтайгаар өгөгдлийн үнэ цэнийг бүрэн ашиглая.'},en:{eventInfo:'Event Information',date:'Date',time:'Time',location:'Location',audience:'Audience',locationText:'Monnis Building, 15th Floor',audienceText:'Open to All Employees',agenda:'Agenda',tagline:'Knowledge • Experience • Collaboration • New Opportunities • Prizes • GIS Day Cake 🎂',s1:'Opening Remarks & GIS Day Introduction',sp1:'Systems & Data Team',s2:'GIS Team Highlights 2026: Key Achievements & Services Overview',sp2:'Sanjmyatav S.',s3:'The Role of GIS in Supporting Land Use Management',sp3:'Dashnyam B. & Tseesuren O.',s4:'An Example of Presenting Geological Mapping of an Underground Mine Development Face Using the GIS Portal',sp4:'Oyunomin B.',s5:'New Opportunities for Spatial Analysis and Automation Using GIS Services (Notebook Server Capabilities)',sp5:'Solongo M.',s6:'Benefits and Applications of the GIS-Based Area ownership System Across the Oyu Tolgoi Project',sp6:'Health & Safety Team',s7:'Interactive GIS Quiz & Prize Ceremony',sp7:'All Participants',s8:'Networking, Open Discussion, Q&A and Group Photo Session',sp8:'All Participants',f1:'Data is an Asset. Location Creates Value.',f2:'Unlock the Full Value of Data with GIS.'}};function setLang(l){eventInfoTitle.textContent=t[l].eventInfo;dateLabel.textContent=t[l].date;timeLabel.textContent=t[l].time;locationLabel.textContent=t[l].location;audienceLabel.textContent=t[l].audience;locationText.textContent=t[l].locationText;audienceText.textContent=t[l].audienceText;agendaTitle.textContent=t[l].agenda;tagline.textContent=t[l].tagline;s1.textContent=t[l].s1;sp1.textContent=t[l].sp1;s2.textContent=t[l].s2;s3.textContent=t[l].s3;s4.textContent=t[l].s4;s5.textContent=t[l].s5;s6.textContent=t[l].s6;sp6.textContent=t[l].sp6;s7.textContent=t[l].s7;sp7.textContent=t[l].sp7;s8.textContent=t[l].s8;sp8.textContent=t[l].sp8;footer1.textContent=t[l].f1;footer2.textContent=t[l].f2;}setLang('mn');</script>
-</body></html>
+:root{
+    --primary:#005f73;
+    --secondary:#0a9396;
+    --accent:#ee9b00;
+    --bg:#f4f7fb;
+    --text:#1e293b;
+    --white:#ffffff;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:"Segoe UI", Arial, sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+}
+
+/* Language Switch */
+
+.lang-switch{
+    position:fixed;
+    top:15px;
+    right:15px;
+    z-index:100;
+}
+
+.lang-switch button{
+    border:none;
+    padding:10px 16px;
+    border-radius:24px;
+    margin-left:6px;
+    cursor:pointer;
+    font-weight:600;
+    background:white;
+    box-shadow:0 2px 8px rgba(0,0,0,.10);
+    transition:.25s;
+}
+
+.lang-switch button:hover{
+    transform:translateY(-2px);
+}
+
+.lang-switch button.active{
+    background:var(--accent);
+    color:white;
+}
+
+/* Hero */
+
+.hero{
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    color:white;
+    text-align:center;
+    padding:80px 20px;
+}
+
+.hero h1{
+    font-size:3rem;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:1.1rem;
+    max-width:800px;
+    margin:auto;
+}
+
+/* Layout */
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:50px 20px;
+}
+
+.section-title{
+    text-align:center;
+    color:var(--primary);
+    margin-bottom:30px;
+    font-size:2rem;
+}
+
+/* Cards */
+
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:24px;
+    border-radius:16px;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+.card strong{
+    color:var(--primary);
+}
+
+/* Agenda */
+
+.session{
+    background:white;
+    border-left:6px solid var(--secondary);
+    padding:20px;
+    border-radius:12px;
+    margin-bottom:16px;
+    box-shadow:0 4px 12px rgba(0,0,0,.06);
+}
+
+.time{
+    color:var(--primary);
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+.speaker{
+    display:block;
+    margin-top:8px;
+    color:#64748b;
+}
+
+/* Footer */
+
+footer{
+    background:#0f172a;
+    color:white;
+    text-align:center;
+    padding:40px 20px;
+}
+
+footer p{
+    margin:8px 0;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+    .hero{
+        padding:70px 20px;
+    }
+
+    .hero h1{
+        font-size:2.2rem;
+    }
+
+    .section-title{
+        font-size:1.7rem;
+    }
+
+    .lang-switch{
+        position:absolute;
+        top:10px;
+        right:10px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="lang-switch">
+    <button id="btn-mn" onclick="setLang('mn')" class="active">Монгол</button>
+    <button id="btn-en" onclick="setLang('en')">English</button>
+</div>
+
+<section class="hero">
+    <h1>GIS DAY 2026</h1>
+    <p id="tagline"></p>
+</section>
+
+<section class="container">
+    <h2 id="eventInfoTitle" class="section-title"></h2>
+
+    <div class="info-grid">
+        <div class="card">
+            <strong id="dateLabel"></strong><br>
+            2026.11.18
+        </div>
+
+        <div class="card">
+            <strong id="timeLabel"></strong><br>
+            12:30–14:30
+        </div>
+
+        <div class="card">
+            <strong id="locationLabel"></strong><br>
+            <span id="locationText"></span>
+        </div>
+
+        <div class="card">
+            <strong id="audienceLabel"></strong><br>
+            <span id="audienceText"></span>
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <h2 id="agendaTitle" class="section-title"></h2>
+
+    <div class="session">
+        <div class="time">12:30 – 12:45</div>
+        <div id="s1"></div>
+        <span id="sp1" class="speaker"></span>
+    </div>
+
+    <div class="session">
+        <div class="time">12:45 – 12:55</div>
+        <div id="s2"></div>
+        <span id="sp2" class="speaker"></span>
+    </div>
+
+    <div class="session">
+        <div class="time">12:55 – 13:10</div>
+        <div id="s3"></div>
+        <span id="sp3" class="speaker"></span>
+    </div>
+
+    <div class="session">
+        <div class="time">13:10 – 13:25</div>
+        <div id="s4"></div>
+        <span id="sp4" class="speaker"></span>
+    </div>
+
+    <div class="session">
+        <div class="time">13:25 – 13:35</div>
+        <div id="s5"></div>
+        <span id="sp5" class="speaker"></span>
+    </div>
+
+    <div class="session">
+        <div class="time">13:35 – 13:50</div>
+        <div id="s6"></div>
+        <span id="sp6" class="speaker"></span>
+    </div>
+
+    <div class="session">
+        <div class="time">13:50 – 14:10</div>
+        <div id="s7"></div>
+        <span id="sp7" class="speaker"></span>
+    </div>
+
+    <div class="session">
+        <div class="time">14:10 – 14:30</div>
+        <div id="s8"></div>
+        <span id="sp8" class="speaker"></span>
+    </div>
+</section>
+
+<footer>
+    <p id="footer1"></p>
+    <p id="footer2"></p>
+</footer>
+
+<script>
+const translations = {
+    mn: {
+        eventInfo: "Арга хэмжээний мэдээлэл",
+        date: "Огноо",
+        time: "Цаг",
+        location: "Байршил",
+        audience: "Оролцогчид",
+        locationText: "Моннис 15 давхар",
+        audienceText: "Сонирхсон хүн бүрт нээлттэй",
+        agenda: "Хөтөлбөр",
+        tagline: "Мэдлэг • Туршлага • Хамтын ажиллагаа • Шинэ боломж • Шагнал • GIS Day бялуу 🎂",
+
+        s1:"Нээлтийн ажиллагаа (мэндчилгээ, ГМС-ийн өдрийн танилцуулга)",
+        sp1:"Систем ба Дата баг",
+
+        s2:"ГМС-ийн багийн 2026 оны онцлох үр дүн, үйлчилгээний танилцуулга",
+        sp2:"Д.Санжмятав",
+
+        s3:"Газар ашиглалтын менежментийг хэрэгжүүлэхэд газарзүйн мэдээллийн системийн ач холбогдол",
+        sp3:"Б.Дашням, О.Цээсүрэн",
+
+        s4:"Далд уурхайн мөргөцөгийн 3 хэмжээст геологийн зураглалыг ГМС Портал ашиглан харуулсан жишээ",
+        sp4:"Б.Оюуномин",
+
+        s5:"ГМС сервис ашиглан оронзайн анализ хийх, автоматжуулах шинэ боломжууд (Notebook Server ашиглах боломж)",
+        sp5:"М.Солонго",
+
+        s6:"Оюу Толгой төслийн хэмжээнд талбайн хариуцагчийн мэдээллийг нэгтгэн удирдах ГМС аппликейшны хэрэглээ, ач холбогдол",
+        sp6:"ЭМААБ-ын баг",
+
+        s7:"Асуулт, хариултын хөгжөөнт тэмцээн, Шагнал гардуулах ажиллагаа",
+        sp7:"Бүх оролцогчид",
+
+        s8:"Чөлөөт ярилцлага, асуулт хариултын цаг, зураг авалт",
+        sp8:"Бүх оролцогчид",
+
+        f1:"Өгөгдөл бол хөрөнгө. Байршил бол үнэ цэнэ юм.",
+        f2:"ГМС-ийн тусламжтайгаар өгөгдлийн үнэ цэнийг бүрэн ашиглая."
+    },
+
+    en: {
+        eventInfo:"Event Information",
+        date:"Date",
+        time:"Time",
+        location:"Location",
+        audience:"Audience",
+        locationText:"Monnis Building, 15th Floor",
+        audienceText:"Open to All Employees",
+        agenda:"Agenda",
+        tagline:"Knowledge • Experience • Collaboration • New Opportunities • Prizes • GIS Day Cake 🎂",
+
+        s1:"Opening Remarks & GIS Day Introduction",
+        sp1:"Systems & Data Team",
+
+        s2:"GIS Team Highlights 2026: Key Achievements & Services Overview",
+        sp2:"Sanjmyatav D.",
+
+        s3:"The Role of GIS in Supporting Land Use Management",
+        sp3:"Dashnyam B. & Tseesuren O.",
+
+        s4:"Using the GIS Portal to Visualize 3D Geological Mapping of Underground Development Faces",
+        sp4:"Oyunomin B.",
+
+        s5:"New Opportunities for Spatial Analysis and Automation Using GIS Services (Notebook Server)",
+        sp5:"Solongo M.",
+
+        s6:"Benefits and Applications of the GIS-Based Area Ownership Application Across the Oyu Tolgoi Project",
+        sp6:"HSE Team",
+
+        s7:"Interactive GIS Quiz & Prize Ceremony",
+        sp7:"All Participants",
+
+        s8:"Networking, Open Discussion, Q&A and Group Photo Session",
+        sp8:"All Participants",
+
+        f1:"Data is an Asset. Location Creates Value.",
+        f2:"Unlock the Full Value of Data with GIS."
+    }
+};
+
+function setLang(lang) {
+
+    const d = translations[lang];
+
+    document.getElementById("eventInfoTitle").textContent = d.eventInfo;
+    document.getElementById("dateLabel").textContent = d.date;
+    document.getElementById("timeLabel").textContent = d.time;
+    document.getElementById("locationLabel").textContent = d.location;
+    document.getElementById("audienceLabel").textContent = d.audience;
+    document.getElementById("locationText").textContent = d.locationText;
+    document.getElementById("audienceText").textContent = d.audienceText;
+    document.getElementById("agendaTitle").textContent = d.agenda;
+    document.getElementById("tagline").textContent = d.tagline;
+
+    for(let i = 1; i <= 8; i++){
+        document.getElementById(`s${i}`).textContent = d[`s${i}`];
+        document.getElementById(`sp${i}`).textContent = d[`sp${i}`];
+    }
+
+    document.getElementById("footer1").textContent = d.f1;
+    document.getElementById("footer2").textContent = d.f2;
+
+    document.getElementById("btn-mn").classList.toggle("active", lang === "mn");
+    document.getElementById("btn-en").classList.toggle("active", lang === "en");
+
+    document.documentElement.lang = lang;
+}
+
+setLang("mn");
+</script>
+
+</body>
+</html>
