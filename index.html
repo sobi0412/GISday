@@ -76,17 +76,39 @@ body{
 /* Hero */
 
 .hero{
-    padding:90px 20px 70px;
+    position:relative;
 
-    background:
-    linear-gradient(
-    135deg,
-    #0F172A,
-    #1E293B);
+ padding:90px 20px 70px;
 
-    color:white;
+ background:
+ linear-gradient(
+ 135deg,
+ #0F172A,
+ #1E293B);
 
-    text-align:center;
+ color:white;
+
+ text-align:center;
+
+ overflow:hidden;
+}
+
+.hero-logo{
+    position:absolute;
+
+    left:40px;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    height:80px;
+    width:auto;
+
+    object-fit:contain;
+
+    filter:drop-shadow(
+        0 4px 12px rgba(0,0,0,.20)
+    );
 }
 
 .badge{
@@ -288,6 +310,18 @@ footer p{
         font-size:1.1rem;
     }
 
+    .hero-logo{
+    	position:static;
+
+    	transform:none;
+
+    	height:50px;
+
+    	display:block;
+
+    	margin:0 auto 20px;
+}
+
     .section-title{
         font-size:1.8rem;
     }
@@ -328,9 +362,16 @@ footer p{
 </div>
 
 <section class="hero">
+     <img src="images/ot-logo.png"
+         alt="Oyu Tolgoi"
+         class="hero-logo">
+
     <div class="hero-content">
+
         <div class="badge">GIS DAY 2026</div>
+
         <p id="tagline"></p>
+
     </div>
 </section>
 
@@ -367,6 +408,7 @@ footer p{
 <section class="container">
 
     <h2 id="agendaTitle" class="section-title"></h2>
+<div class="timeline">
 
 <div class="timeline-item">
 
